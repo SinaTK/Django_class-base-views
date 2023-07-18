@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for car in cars %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{car.brand}}-{{car.model}}</h5> 
+                <h6 class="card-subtitle mb-2 text-muted">{{car.year}}</h6>
+                <p class="card-text">Belongs to {{car.owner}}</p>
+                <a href={% url 'home:delete_car' car.id %} class="btn btn-danger btn-sm">Delete</a>
+                <a href={% url 'home:update_car' car.id %} class="btn btn-info btn-sm">Update</a>
+            </div>
+        </div>
+    {% endfor %}
+    <a href={% url 'home:create_car' %} class="btn btn-info">Create Car</a>
+{% endblock content %}

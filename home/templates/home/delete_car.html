@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action='' method='post' nonvalidate>
+        {% csrf_token %}
+        <h5> Are you sure to delete {{object.brand}}?</h5>
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href={% url 'home:cars' %} class="btn btn-light">Cancel</button>
+    </form>
+{% endblock content %}
